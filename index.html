@@ -68,6 +68,22 @@
         // The start method will wait until the DOM is loaded.
         ui.start('#firebaseui-auth-container', uiConfig);
     </script>
+
+    <script type="text/javascript">
+        initApp = function() {
+            firebase.auth().onAuthStateChanged(function(user) {
+                // Login
+                console.log(user);
+            }, function(error) {
+                // Not login
+                console.log(error);
+            });
+        };
+
+        window.addEventListener('load', function() {
+            initApp()
+        });
+    </script>
 </head>
 
 <body>
